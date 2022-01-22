@@ -33,7 +33,7 @@ HANTRO_PKGS_mx8mq = "imx-vpu-hantro-daemon"
 
 
 ERPC_COMPS ?= ""
-ERPC_COMPS_append_mx7ulp = "packagegroup-imx-erpc"
+ERPC_COMPS:append:mx7ulp = "packagegroup-imx-erpc"
 
 ISP_PKGS = ""
 ## ISP_PKGS_mx8mp = "packagegroup-imx-isp"
@@ -107,6 +107,6 @@ IMAGE_INSTALL += " \
 	${HANTRO_PKGS} \
 "
 
-IMAGE_INSTALL_append_mx8m += "\
+IMAGE_INSTALL:append:mx8m += "\
 	imx8-brcm \
 "

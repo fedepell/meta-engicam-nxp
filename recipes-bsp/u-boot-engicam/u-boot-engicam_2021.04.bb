@@ -13,7 +13,7 @@ B = "${WORKDIR}/build"
 
 do_configure[cleandirs] = "${B}"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 PROVIDES += "u-boot"
 
 LICENSE = "GPLv2+"
@@ -30,7 +30,7 @@ LOCALVERSION ?= "-5.10.35-2.0.0"
 
 BOOT_TOOLS = "imx-boot-tools"
 
-do_deploy_append_mx8m () {
+do_deploy:append:mx8m () {
     # Deploy u-boot-nodtb.bin and fsl-imx8mq-XX.dtb, to be packaged in boot binary by imx-boot
     if [ -n "${UBOOT_CONFIG}" ]
     then

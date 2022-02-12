@@ -1,6 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-fix-dtb-name.patch"
+# FP: Temporarily removed, is this really needed?
+# SRC_URI += "file://0001-fix-dtb-name.patch"
 
 do_compile() {
     compile_${SOC_FAMILY}

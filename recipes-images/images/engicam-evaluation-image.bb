@@ -107,6 +107,6 @@ IMAGE_INSTALL += " \
 	${HANTRO_PKGS} \
 "
 
-IMAGE_INSTALL:append:mx8m += "\
+IMAGE_INSTALL:append:mx8m = "\
 	imx8-brcm \
 "

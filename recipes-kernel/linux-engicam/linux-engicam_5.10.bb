@@ -6,6 +6,7 @@ SUMMARY = "Linux Kernel provided and supported by Engicam"
 DESCRIPTION = "Linux Kernel provided and supported by Engicam with focus on \
 i.MX engicam Family Reference Boards. It includes support for many IPs such as GPU, VPU and IPU."
 
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
@@ -26,6 +27,8 @@ LOCALVERSION = "-lts-5.10.y"
 KERNEL_SRC ?= "git://github.com/engicam-stable/linux-engicam-nxp.git;protocol=http"
 
 SRC_URI = "${KERNEL_SRC};branch=${KERNEL_BRANCH}"
+SRC_URI += " file://defconfig"
+
 
 SRCREV_default = "${AUTOREV}"
 
@@ -46,12 +49,12 @@ KBUILD_DEFCONFIG= "${IMX_KERNEL_CONFIG_AARCH64}"
 # Use a verbatim copy of the defconfig from the linux-imx repo.
 # IMPORTANT: This task effectively disables kernel config fragments
 # since the config fragments applied in do_kernel_configme are replaced.
-addtask copy_defconfig after do_kernel_configme before do_kernel_localversion
-do_copy_defconfig () {
-    install -d ${B}
-    # copy latest IMX_KERNEL_CONFIG_AARCH64 to use for mx8
-    mkdir -p ${B}
-    cp ${S}/arch/arm64/configs/${IMX_KERNEL_CONFIG_AARCH64} ${B}/.config
-}
+#addtask copy_defconfig after do_kernel_configme before do_kernel_localversion
+#do_copy_defconfig () {
+#    install -d ${B}
+#    # copy latest IMX_KERNEL_CONFIG_AARCH64 to use for mx8
+#    mkdir -p ${B}
+#    cp ${S}/arch/arm64/configs/${IMX_KERNEL_CONFIG_AARCH64} ${B}/.config
+#}
 
 COMPATIBLE_MACHINE = "(mx6|mx8)"

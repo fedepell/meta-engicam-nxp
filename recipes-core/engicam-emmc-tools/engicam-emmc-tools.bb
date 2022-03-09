@@ -1,6 +1,6 @@
 SUMMARY = "Tools for emmc programmig"
 DESCRIPTION = "This package provides tools for emmc programmig"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/copyright;md5=3dd6192d306f582dee7687da3d8748ab"
 
 inherit allarch

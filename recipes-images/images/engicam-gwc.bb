@@ -99,6 +99,7 @@ IMAGE_INSTALL:append = " \
 	libnodave \
 	fswebcam \
 	yasdi \
+	btrfs-tools \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

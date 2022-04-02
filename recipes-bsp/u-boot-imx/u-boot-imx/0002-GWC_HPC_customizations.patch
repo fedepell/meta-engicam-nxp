@@ -1,0 +1,21 @@
+diff --git a/configs/imx8xq_icore_defconfig b/configs/imx8xq_icore_defconfig
+index 7f0d64adec..17273ae5ba 100644
+--- a/configs/imx8xq_icore_defconfig
++++ b/configs/imx8xq_icore_defconfig
+@@ -40,7 +40,7 @@ CONFIG_CMD_CPU=y
+ # CONFIG_BOOTM_NETBSD is not set
+ # CONFIG_CMD_EXPORTENV is not set
+ # CONFIG_CMD_IMPORTENV is not set
+-# CONFIG_CMD_CRC32 is not set
++CONFIG_CMD_CRC32=y
+ CONFIG_CMD_CLK=y
+ CONFIG_CMD_DM=y
+ CONFIG_CMD_GPIO=y
+@@ -183,3 +183,7 @@ CONFIG_SYS_WHITE_ON_BLACK=y
+ CONFIG_SPLASH_SCREEN=y
+ CONFIG_SPLASH_SCREEN_ALIGN=y
+ CONFIG_CMD_BMP=y
++
++CONFIG_AHAB_BOOT=y
++CONFIG_CMD_DEKBLOB=y
++CONFIG_IMX_SECO_DEK_ENCAP=y

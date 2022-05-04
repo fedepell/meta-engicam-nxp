@@ -1,0 +1,29 @@
+diff -ruN a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts
+--- a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2022-04-20 09:52:40.845988041 +0200
++++ b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2022-05-04 12:00:24.587247723 +0200
+@@ -246,21 +246,10 @@
+ 	pinctrl-0 = <&pinctrl_lpi2c1>;
+ 	status = "okay";
+ 
+-	sgtl5000: codec@a {
+-		compatible = "fsl,sgtl5000";
+-		status = "okay";
+-		#sound-dai-cells = <0>;
+-		reg = <0x0a>;
+-		clocks = <&mclkout0_lpcg 0>;
+-		clock-names = "mclk";
+-		assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
+-				<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
+-				<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
+-				<&mclkout0_lpcg 0>;
+-		assigned-clock-rates = <786432000>, <49152000>, <12288000>, <12288000>;
+-		VDDA-supply = <&reg_3v3>;
+-		VDDIO-supply = <&reg_3v3>;
+-		VDDD-supply = <&reg_1v8>;
++	// rtc PCF85063
++	extrtcpcf: rtc@51 {
++		compatible = "nxp,pcf85063";
++		reg = <0x51>;
+ 	};
+ };
+ 

@@ -28,7 +28,6 @@ IMAGE_INSTALL:append = " \
 	json-c \
 	ppp \
 	ppp-tools \
-	lua \
 	curl \
 	openvpn \
 	lighttpd \
@@ -86,15 +85,6 @@ IMAGE_INSTALL:append = " \
 	u-boot-fw-utils \
 	libmodbus \
 	gd \
-	luaposix \
-	luacjson \
-	luasys \
-	luasocket \
-	luasnmp \
-	lualfs \
-	luaexpat \
-	luaeffil \
-	luasql \
 	opendnp3 \
 	libnodave \
 	fswebcam \

@@ -23,8 +23,6 @@ IMAGE_INSTALL:append = " \
 	usbutils \
 	iw \
 	wpa-supplicant \
-	opkg \
-	opkg-collateral \
 	json-c \
 	ppp \
 	ppp-tools \
@@ -92,6 +90,9 @@ IMAGE_INSTALL:append = " \
 	fswebcam \
 	yasdi \
 	btrfs-tools \
+	rpm \
+	gpgme \
+	gnupg \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

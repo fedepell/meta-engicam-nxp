@@ -93,6 +93,7 @@ IMAGE_INSTALL:append = " \
 	rpm \
 	gpgme \
 	gnupg \
+	cryptsetup \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

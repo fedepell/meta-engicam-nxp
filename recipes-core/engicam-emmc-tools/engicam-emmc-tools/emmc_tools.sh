@@ -22,27 +22,22 @@ function error
 # 1 settore = 512 byte
 function create_emmc
 {
+local DEV="$1"
 echo "create_emmc"
 
-dd if=/dev/zero of=$1 bs=1M count=1
-wipefs --all --force -q $1
-echo "Partitioning emmc"
-echo "o
-n
-p
-1
-16384
-186775
-n
-p
-2
-196608
+dd if=/dev/zero of="$DEV" bs=1M count=1
+wipefs --all --force -q "$DEV"
+echo "Partitioning emmc: $DEV"
 
-t
-1
-c
-w 
-q" | fdisk $1
+echo "
+label: dos
+unit: sectors
+sector-size: 512
+
+boot : start=       16384, size=      170392, type=c
+root : start=      196608, size=     6291456, type=83
+data : start=     6488064
+" | sfdisk $DEV
 error $?
 
 echo "Format emmc"

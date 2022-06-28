@@ -55,7 +55,7 @@ diff -ruN a/configs/imx8xq_icore_defconfig b/configs/imx8xq_icore_defconfig
  CONFIG_CMD_DEKBLOB=y
 diff -ruN a/include/configs/imx8x_icore.h b/include/configs/imx8x_icore.h
 --- a/include/configs/imx8x_icore.h	2022-06-18 04:39:19.955253309 +0200
-+++ b/include/configs/imx8x_icore.h	2022-06-25 10:14:27.086562903 +0200
++++ b/include/configs/imx8x_icore.h	2022-06-28 03:59:43.748673963 +0200
 @@ -81,52 +81,10 @@
  	"emmc_dev=0\0" \
  	"sd_dev=1\0" \
@@ -109,7 +109,7 @@ diff -ruN a/include/configs/imx8x_icore.h b/include/configs/imx8x_icore.h
  	AHAB_ENV \
  	"script=boot.scr\0" \
  	"image=Image\0" \
-@@ -202,22 +160,18 @@
+@@ -202,22 +160,12 @@
  
  #define CONFIG_BOOTCOMMAND \
  	   "mmc dev ${mmcdev}; if mmc rescan; then " \
@@ -127,17 +127,10 @@ diff -ruN a/include/configs/imx8x_icore.h b/include/configs/imx8x_icore.h
 -				   "else run netboot; " \
 -				   "fi; " \
 -			 "fi; " \
--		   "fi; " \
++		   "if run loadcntr; then " \
++			   "run mmcboot; " \
+ 		   "fi; " \
 -	   "else booti ${loadaddr} - ${fdt_addr}; fi"
-+		   "if test ${sec_boot} = yes; then " \
-+			   "if run loadcntr; then " \
-+				   "run mmcboot; " \
-+			   "fi; " \
-+		    "else " \
-+			   "if run loadimage; then " \
-+				   "run mmcboot; " \
-+			   "fi; " \
-+		    "fi; " \
 +		"else " \
 +			"echo WARN: Error scanning MMC; " \
 +		"fi; "

@@ -8,7 +8,7 @@ SRC_URI += "file://0001-Add_Engicam_dts.patch file://0002-Add-customized-DTS-for
 
 # Additional parts to generate container and sign it (if csfsigned override is present)
 # See also imx-boot recipe for more details!
-DEPENDS:csfsigned += "imx-boot"
+DEPENDS:csfsigned += "imx-boot openssl-native"
 
 BOOT_TOOLS = "imx-boot-tools"
 

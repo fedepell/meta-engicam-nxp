@@ -61,7 +61,7 @@ new file mode 100644
 index 000000000000..0878c4b52ad1
 --- /dev/null
 +++ b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts
-@@ -0,0 +1,570 @@
+@@ -0,0 +1,569 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
 + * Copyright 2017-2020 NXP
@@ -281,7 +281,6 @@ index 000000000000..0878c4b52ad1
 +			compatible = "ethernet-phy-ieee802.3-c22";
 +			reg = <7>;
 +			status = "okay";
-+			max-speed = <100>; // PCB problem, to be removed with new PCBs
 +		};
 +
 +		ethphy1: ethernet-phy@3 {

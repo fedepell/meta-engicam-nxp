@@ -1,10 +1,10 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-
-
 SRC_URI += "file://0001-Add_Engicam_dts.patch file://0002-Add-customized-DTS-for-HPC-hardware-Dual-and-Quad.patch file://0003-Add_external_RTC.patch file://0004-Hardware_rev2_pins.patch file://csf_linux_img.txt "
 
+# Custom Higeco Version ID
+PV = "${LINUX_VERSION}-HSC-1"
 
 # Additional parts to generate container and sign it (if csfsigned override is present)
 # See also imx-boot recipe for more details!

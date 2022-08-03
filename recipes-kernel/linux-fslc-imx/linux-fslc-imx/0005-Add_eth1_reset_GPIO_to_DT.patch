@@ -1,0 +1,11 @@
+diff -ruN a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts
+--- a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2022-07-09 06:33:15.827041818 +0200
++++ b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2022-08-03 06:23:02.637611678 +0200
+@@ -431,6 +431,7 @@
+ 			IMX8QXP_ESAI0_TX3_RX2_CONN_ENET1_RGMII_RXD1	0x00000060
+ 			IMX8QXP_ESAI0_TX2_RX3_CONN_ENET1_RGMII_RXD2	0x00000060
+ 			IMX8QXP_ESAI0_TX1_CONN_ENET1_RGMII_RXD3		0x00000060
++			IMX8QXP_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08	0x06000020
+ 		>;
+ 	};
+ 

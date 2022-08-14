@@ -1,0 +1,33 @@
+diff -ruN a/caam_keyblob.c b/caam_keyblob.c
+--- a/caam_keyblob.c	2022-08-07 06:38:53.386916827 +0200
++++ b/caam_keyblob.c	2022-08-07 06:58:55.891091812 +0200
+@@ -657,7 +657,7 @@
+ 	}
+ 
+ 	dev_info(&pdev->dev, "caam_keyblob: initialized\n");
+-
++/*
+ 	page = ioremap(SNVS_HPSR_REG & ~(SZ_4K - 1), SZ_4K);
+ 	offset = SNVS_HPSR_REG & (SZ_4K - 1);
+ 	ssm_state = (__raw_readl(page + offset) & SNVS_HPSR_SSM_STATE_MASK);
+@@ -669,7 +669,7 @@
+ 	} else {
+ 		printk(KERN_NOTICE "caam_keyblob: WARNING - not in Trusted or Secure State, Non-volatile Test Key in effect\n");
+ 	}
+-
++*/
+ 	return 0;
+ err:
+ 	return err;
+diff -ruN a/Makefile b/Makefile
+--- a/Makefile	2022-08-06 07:41:32.533526999 +0200
++++ b/Makefile	2022-08-06 07:44:02.200064253 +0200
+@@ -1,7 +1,7 @@
+ ifneq ($(KERNELRELEASE),)
+ 
+ # kbuild
+-ccflags-y := -march=armv7-a
++# ccflags-y := -march=armv7-a
+ ccflags-y += -I$(srctree)/drivers/crypto/caam
+ obj-m += caam_keyblob.o
+ 

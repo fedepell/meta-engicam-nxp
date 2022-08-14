@@ -94,6 +94,10 @@ IMAGE_INSTALL:append = " \
 	gpgme \
 	gnupg \
 	cryptsetup \
+	kernel-module-caam-keyblob \
+	kernel-module-dm-crypt \
+	keyutils \
+	keyctl-caam \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

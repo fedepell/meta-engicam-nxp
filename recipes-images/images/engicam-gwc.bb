@@ -98,6 +98,9 @@ IMAGE_INSTALL:append = " \
 	kernel-module-dm-crypt \
 	keyutils \
 	keyctl-caam \
+	python3-fail2ban \
+	nftables \
+	net-snmp-server \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

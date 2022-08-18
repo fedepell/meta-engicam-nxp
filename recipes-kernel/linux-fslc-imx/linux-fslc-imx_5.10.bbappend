@@ -26,9 +26,11 @@ do_install:append:csfsigned() {
          install -m 0644 os_cntr_signed.bin ${D}/boot
          # This would be better to have it in a do_deploy I believe
          cp os_cntr_signed.bin ${DEPLOY_DIR_IMAGE}
+         # Delete unsigned image now, so it will not be packed in image-image automatically
+         rm ${D}/boot/Image-*
       fi
     fi
 }
 
-# Should it go to -image or -image-image package? (TODO)
+# Add it to the image RPM (the image-image is dynamically created in kernel.bbclass, so we cannot put the file in that one)
 FILES:${KERNEL_PACKAGE_NAME}-image:csfsigned += "/boot/os_cntr_signed.bin"

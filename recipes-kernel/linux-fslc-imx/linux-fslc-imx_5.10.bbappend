@@ -28,7 +28,7 @@ do_install:append:csfsigned() {
          # This would be better to have it in a do_deploy I believe
          cp os_cntr_signed.bin ${DEPLOY_DIR_IMAGE}
          # Delete unsigned image now, so it will not be packed in image-image automatically
-         rm ${D}/boot/Image-*
+         rm ${D}/boot/Image*
       fi
     fi
 }

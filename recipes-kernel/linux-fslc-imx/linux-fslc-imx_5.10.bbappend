@@ -29,11 +29,15 @@ do_install:append:csfsigned() {
          cp os_cntr_signed.bin ${DEPLOY_DIR_IMAGE}
          # Delete unsigned image now, so it will not be packed in image-image automatically
          rm ${D}/boot/Image-*
-         # But create a link to the signed one, as that is needed by a late kernel.bbclass task or it will result in a dangling link
-         ln -s os_cntr_signed.bin ${D}/boot/Image-${PV}+
       fi
     fi
 }
+
+# Remove the dynamically generated (in kernel.bbclass) post-install script for RPM (generates links that break on ext4)
+python write_specfile:prepend:csfsigned() {
+    d.setVar('pkg_postinst:kernel-image-image', "")
+}
+
 
 # Add it to the image RPM (the image-image is dynamically created in kernel.bbclass, so we cannot put the file in that one)
 FILES:${KERNEL_PACKAGE_NAME}-image:csfsigned += "/boot/os_cntr_signed.bin"

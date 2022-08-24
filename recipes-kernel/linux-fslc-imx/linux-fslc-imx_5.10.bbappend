@@ -29,6 +29,8 @@ do_install:append:csfsigned() {
          cp os_cntr_signed.bin ${DEPLOY_DIR_IMAGE}
          # Delete unsigned image now, so it will not be packed in image-image automatically
          rm ${D}/boot/Image-*
+         # But create a link to the signed one, as that is needed by a late kernel.bbclass task or it will result in a dangling link
+         ln -s os_cntr_signed.bin ${D}/boot/Image-${PV}+
       fi
     fi
 }

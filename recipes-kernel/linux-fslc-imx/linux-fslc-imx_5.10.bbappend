@@ -33,7 +33,7 @@ do_install:append:csfsigned() {
     fi
 }
 
-# Remove the dynamically generated (in kernel.bbclass) post-install script for RPM (generates links that break on ext4)
+# Remove the dynamically generated (in kernel.bbclass) post-install script for RPM (generates links that break on FAT)
 python write_specfile:prepend:csfsigned() {
     d.setVar('pkg_postinst:kernel-image-image', "")
 }

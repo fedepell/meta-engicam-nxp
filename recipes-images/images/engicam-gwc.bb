@@ -101,6 +101,7 @@ IMAGE_INSTALL:append = " \
 	python3-fail2ban \
 	nftables \
 	net-snmp-server \
+	higeco-signing-keys-rpm \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

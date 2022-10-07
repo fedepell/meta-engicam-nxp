@@ -103,6 +103,8 @@ IMAGE_INSTALL:append = " \
 	net-snmp-server \
 	higeco-signing-keys-rpm \
 	chrony \
+	libedit0 \
+	gpsd \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

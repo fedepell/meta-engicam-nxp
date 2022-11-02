@@ -41,9 +41,7 @@ IMAGE_INSTALL:append = " \
 	lighttpd-module-cgi \
 	lighttpd-module-deflate \
 	libmicrohttpd \
-	ntpdate \
 	sntp \
-	ntp-utils \
 	procps \
 	xz \
 	wget \
@@ -98,6 +96,7 @@ IMAGE_INSTALL:append = " \
 	kernel-module-dm-crypt \
 	keyutils \
 	keyctl-caam \
+	caam-keyblob \
 	python3-fail2ban \
 	nftables \
 	net-snmp-server \

@@ -19,7 +19,7 @@ do_install:append:csfsigned() {
          # Copy CSF configuration part
          cp ${WORKDIR}/csf_linux_img.txt ${CSFPATH}
          # Create container with kernel and DTB
-         ${DEPLOY_DIR_IMAGE}/${BOOT_TOOLS}/mkimage_imx8.csf -soc QX -rev B0 -c -ap arch/arm64/boot/Image a53 0x80280000 --data arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dtb a53 0x83000000 -out ${CSFPATH}/flash_os.bin
+         ${DEPLOY_DIR_IMAGE}/${BOOT_TOOLS}/mkimage_imx8 -soc QX -rev B0 -c -ap arch/arm64/boot/Image a53 0x80280000 --data arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dtb a53 0x83000000 -out ${CSFPATH}/flash_os.bin
          # Sign image in container with CSF tool
          cd ${CSFPATH}
          ./linux64/bin/cst -i csf_linux_img.txt -o os_cntr_signed.bin

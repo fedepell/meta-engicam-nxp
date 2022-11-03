@@ -95,7 +95,6 @@ IMAGE_INSTALL:append = " \
 	kernel-module-dm-crypt \
 	keyutils \
 	keyctl-caam \
-	caam-keyblob \
 	python3-fail2ban \
 	nftables \
 	net-snmp-server \

@@ -41,7 +41,6 @@ IMAGE_INSTALL:append = " \
 	lighttpd-module-cgi \
 	lighttpd-module-deflate \
 	libmicrohttpd \
-	sntp \
 	procps \
 	xz \
 	wget \

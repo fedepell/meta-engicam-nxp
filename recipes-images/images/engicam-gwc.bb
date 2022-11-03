@@ -41,9 +41,6 @@ IMAGE_INSTALL:append = " \
 	lighttpd-module-cgi \
 	lighttpd-module-deflate \
 	libmicrohttpd \
-	ntpdate \
-	sntp \
-	ntp-utils \
 	procps \
 	xz \
 	wget \
@@ -102,6 +99,9 @@ IMAGE_INSTALL:append = " \
 	nftables \
 	net-snmp-server \
 	higeco-signing-keys-rpm \
+	chrony \
+	libedit \
+	gpsd \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

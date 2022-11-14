@@ -97,6 +97,7 @@ IMAGE_INSTALL:append = " \
 	keyctl-caam \
 	python3-fail2ban \
 	nftables \
+	net-snmp-dev \
 	net-snmp-server \
 	higeco-signing-keys-rpm \
 	chrony \

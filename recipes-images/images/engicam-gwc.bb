@@ -97,11 +97,13 @@ IMAGE_INSTALL:append = " \
 	keyctl-caam \
 	python3-fail2ban \
 	nftables \
+	net-snmp-dev \
 	net-snmp-server \
 	higeco-signing-keys-rpm \
 	chrony \
 	libedit \
 	gpsd \
+	libgps \
 "
 
 # NOTE: lighttpd-mod-compress -> lighttpd-mod-deflate https://redmine.lighttpd.net/projects/1/wiki/docs_modcompress

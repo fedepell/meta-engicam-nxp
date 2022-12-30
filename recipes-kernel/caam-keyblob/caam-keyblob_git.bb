@@ -1,6 +1,6 @@
 SUMMARY = "NXP Cryptographic Acceleration and Assurance Module (CAAM) - Linux driver"
 DESCRIPTION = "NXP Cryptographic Acceleration and Assurance Module (CAAM) - Linux driver"
-LICENSE = "GPLv3+"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cb8e25572881b205d17b185fd40fb5e3"
 
 PR="r1"

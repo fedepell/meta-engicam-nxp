@@ -120,4 +120,4 @@ IMAGE_INSTALL:append = " \
 #
 
 
-TOOLCHAIN_TARGET_TASK += " wpa-supplicant-staticdev libiec61850-staticdev lib60870-staticdev rpm rpm-build rpm-sign"
+TOOLCHAIN_TARGET_TASK += " wpa-supplicant-staticdev lib60870-staticdev rpm rpm-build rpm-sign"

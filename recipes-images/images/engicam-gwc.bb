@@ -101,6 +101,7 @@ IMAGE_INSTALL:append = " \
 	net-snmp-server \
 	higeco-signing-keys-rpm \
 	chrony \
+	chronyc \
 	libedit \
 	gpsd \
 	libgps \

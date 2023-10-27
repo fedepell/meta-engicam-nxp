@@ -1,0 +1,47 @@
+diff -ruN a/arch/arm/dts/imx8x-icore.dts b/arch/arm/dts/imx8x-icore.dts
+--- a/arch/arm/dts/imx8x-icore.dts	2023-01-06 05:57:19.669489662 +0100
++++ b/arch/arm/dts/imx8x-icore.dts	2023-05-06 05:36:20.003031949 +0200
+@@ -65,6 +65,7 @@
+ 				SC_P_ENET0_RGMII_RXD2_CONN_ENET0_RGMII_RXD2	0x06000020
+ 				SC_P_ENET0_RGMII_RXD3_CONN_ENET0_RGMII_RXD3	0x06000020
+ 				SC_P_MIPI_CSI0_MCLK_OUT_LSIO_GPIO3_IO04 0x06000020 /* TDB MM RGMII reset */
++				SC_P_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08 0x06000020 /* TDB MM RGMII1 reset */
+ 			>;
+ 		};
+ 
+diff -ruN a/board/engicam/imx8x_icore/imx8x_icore.c b/board/engicam/imx8x_icore/imx8x_icore.c
+--- a/board/engicam/imx8x_icore/imx8x_icore.c	2023-01-06 05:57:19.686489801 +0100
++++ b/board/engicam/imx8x_icore/imx8x_icore.c	2023-05-06 05:32:41.513418293 +0200
+@@ -145,7 +145,7 @@
+ 	struct gpio_desc desc;
+ 	int ret;
+ 
+-	printf("Resetting Eth PHY\n");
++	printf("Resetting Eth PHY 0\n");
+ 
+ 	/* The GPIO3_4 will reset the ENET0 PHY */
+ 	if (0 == CONFIG_FEC_ENET_DEV) {
+@@ -163,6 +163,23 @@
+ 		dm_gpio_set_value(&desc, 1);
+ 	}
+ 
++
++
++	printf("Resetting Eth PHY 1\n");
++
++	ret = dm_gpio_lookup_name("GPIO3_8", &desc1);
++	if (ret)
++		return;
++
++	ret = dm_gpio_request(&desc1, "enet1_reset");
++	if (ret)
++		return;
++
++	dm_gpio_set_dir_flags(&desc1, GPIOD_IS_OUT);
++	dm_gpio_set_value(&desc1, 0);
++	udelay(50);
++	dm_gpio_set_value(&desc1, 1);
++
+ 	/* The board has a long delay for this reset to become stable */
+ 	mdelay(200);
+ }

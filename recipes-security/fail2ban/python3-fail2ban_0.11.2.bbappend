@@ -6,9 +6,3 @@ PR="r1"
 # won't be installable.
 VIRTUAL-RUNTIME_syslog = ""
 VIRTUAL-RUNTIME_base-utils-syslog = ""
-
-# moving fail2ban conf to avoid overwriting gwc-conf
-do_install:append() {
-  mv "${D}/etc/fail2ban/fail2ban.conf" \
-     "${D}/etc/fail2ban/fail2ban.conf.dist"
-}

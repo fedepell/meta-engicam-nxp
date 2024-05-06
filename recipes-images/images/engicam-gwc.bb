@@ -105,8 +105,6 @@ IMAGE_INSTALL:append = " \
 	libedit \
 	gpsd \
 	libgps \
-        libestr \
-        libfastjson \
 	rsyslog \
 "
 

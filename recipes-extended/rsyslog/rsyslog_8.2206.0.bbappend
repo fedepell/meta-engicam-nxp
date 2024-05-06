@@ -11,6 +11,6 @@ SYSTEMD_SERVICE:${PN} = ""
 # Removing some not needed files
 # (logrotate, conf and systemd services)
 do_install:append() {
-  rm -rf "${D}/etc" \
+  rm -rf "${D}${sysconfdir}" \
          "${D}/lib"
 }

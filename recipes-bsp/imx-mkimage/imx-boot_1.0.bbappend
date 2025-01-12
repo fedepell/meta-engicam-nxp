@@ -1,5 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+require imx-mkimage_git_hig.inc
+
 # FP: Temporarily removed, is this really needed?
 # SRC_URI += "file://0001-fix-dtb-name.patch"
 

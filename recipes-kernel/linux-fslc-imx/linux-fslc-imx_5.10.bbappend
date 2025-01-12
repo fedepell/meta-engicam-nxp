@@ -7,6 +7,21 @@ SRC_URI += "file://0001-Add_Engicam_dts.patch file://0002-Add-customized-DTS-for
 PV = "${LINUX_VERSION}-HSC-1"
 PR = "r1"
 
+# After last (end of 2024) poky upgrade we had RPM packages that had a different version
+# name due to various changes (in a stable / maintenance branch ???) in kernel version
+# management in Yocto. See (in time order, note some override/delete each other):
+# - https://git.yoctoproject.org/poky/commit/meta/classes?h=kirkstone&id=552288e0c83084097cf38611bd82315aa9d892df
+# - https://git.yoctoproject.org/poky/commit/meta/classes?h=kirkstone&id=0b39955d14600257a6eafc211fd68a933c69a0e9
+# - https://git.yoctoproject.org/poky/commit/meta/classes?h=kirkstone&id=57b8a1adb54a3adab22f4e04ced66a92ffc78a96
+# - https://git.yoctoproject.org/poky/commit/meta/classes?h=kirkstone&id=2b7c113459a602c91badaa7543d02811feac0151
+# - https://git.yoctoproject.org/poky/commit/meta/classes?h=kirkstone&id=26f23535eef1f3314c42cd00cda0c6da7cdaf9af
+# Setting local version as below is a half-hack to guarantee generated RPMs are named the
+# same as before, so dnf update will work correctly (otherwise we would need to remove and
+# then install packages which would be annoying and risky)
+# (it is set to "+" as this was generated, as can be deduced from commits above, due to
+# local changes present, ie. patches we apply, and git reporting them)
+LOCALVERSION = "+"
+
 # Additional parts to generate container and sign it (if csfsigned override is present)
 # See also imx-boot recipe for more details!
 DEPENDS:csfsigned += "imx-boot openssl-native"

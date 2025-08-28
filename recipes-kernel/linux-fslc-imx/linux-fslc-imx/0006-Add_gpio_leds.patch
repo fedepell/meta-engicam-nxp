@@ -1,0 +1,72 @@
+diff -ruN a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts
+--- a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2025-01-11 06:32:57.009292345 +0100
++++ b/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts	2025-08-11 06:57:10.247576116 +0200
+@@ -77,6 +77,34 @@
+ 	};
+ 
+ 
++	gpio-leds {
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_leds>;
++		compatible = "gpio-leds";
++		status = "okay";
++
++		led@1 {
++			label = "led-onoff";
++			gpios = <&lsio_gpio1 26 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++			default-state = "off";
++		};
++
++		led@2 {
++			label = "led-server";
++			gpios = <&lsio_gpio3 18 GPIO_ACTIVE_HIGH >;
++			linux,default-trigger = "cpu0";
++			default-state = "off";
++		};
++
++		led@3 {
++			label = "led-alarm";
++			gpios = <&lsio_gpio3 9 GPIO_ACTIVE_HIGH >;
++			linux,default-trigger = "cpu0";
++			default-state = "off";
++		};
++	};
++
+ 	reg_3v3: regulator-3v3 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "3v3";
+@@ -375,10 +403,8 @@
+ 			IMX8QXP_COMP_CTL_GPIO_1V8_3V3_GPIORHB_PAD  0x000514a0
+ 			IMX8QXP_MIPI_CSI0_GPIO0_00_LSIO_GPIO3_IO08 0x06000020 /* TDB MM RGMII2 reset */
+ 			IMX8QXP_QSPI0B_DATA3_LSIO_GPIO3_IO21 0x06000020 /* TDB MM USB HUB reset */
+-			IMX8QXP_QSPI0A_DATA0_LSIO_GPIO3_IO09		0x06000020
+ 			IMX8QXP_QSPI0A_DATA1_LSIO_GPIO3_IO10		0x04000020
+ 			IMX8QXP_QSPI0A_DATA3_LSIO_GPIO3_IO12		0x04000020
+-			IMX8QXP_QSPI0B_DATA0_LSIO_GPIO3_IO18		0x06000020
+ 			IMX8QXP_QSPI0B_DATA1_LSIO_GPIO3_IO19		0x06000020
+ 			IMX8QXP_CSI_PCLK_LSIO_GPIO3_IO00		0x06000020
+ 			IMX8QXP_MIPI_DSI0_GPIO0_01_LSIO_GPIO1_IO28	0x04000020
+@@ -393,13 +419,21 @@
+ 			IMX8QXP_SPI3_SCK_LSIO_GPIO0_IO13		0x06000020
+ 			IMX8QXP_SPI3_CS0_LSIO_GPIO0_IO16		0x04000020
+ 			IMX8QXP_CSI_MCLK_LSIO_GPIO3_IO01		0x04000020
+-			IMX8QXP_MIPI_DSI0_I2C0_SDA_LSIO_GPIO1_IO26	0x06000020
+ 			IMX8QXP_USDHC1_RESET_B_LSIO_GPIO4_IO19		0x04000020
+ 			IMX8QXP_USDHC1_WP_LSIO_GPIO4_IO21		0x04000020
+ 			IMX8QXP_MIPI_DSI1_I2C0_SCL_LSIO_GPIO1_IO29	0x04000020
+ 		>;
+ 	};
+ 
++	pinctrl_leds: ledgrp {
++		fsl,pins = <
++			IMX8QXP_QSPI0A_DATA0_LSIO_GPIO3_IO09		0x06000020
++			IMX8QXP_QSPI0B_DATA0_LSIO_GPIO3_IO18		0x06000020
++			IMX8QXP_MIPI_DSI0_I2C0_SDA_LSIO_GPIO1_IO26	0x06000020
++		>;
++	};
++
++
+ 	pinctrl_fec1: fec1grp {
+ 		fsl,pins = <
+ 			IMX8QXP_COMP_CTL_GPIO_1V8_3V3_ENET_ENETB0_PAD		0x000014a0

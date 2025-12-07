@@ -1,7 +1,13 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+SRC_URI = "git://github.com/fedepell/linux-fslc.git;branch=${KBRANCH};protocol=https \
+           file://defconfig"
+
 SRC_URI += "file://0001-Add_Engicam_dts.patch file://0002-Add-customized-DTS-for-HPC-hardware-Dual-and-Quad.patch file://0003-Add_external_RTC.patch file://0004-Hardware_rev2_pins.patch file://0005-Add_CAAM_blob_dts.patch file://0006-Add_gpio_leds.patch file://csf_linux_img.txt "
+
+SRCREV = "9aee9bcd0a9e8e169e5d725f0fb0c6d6b84d310d"
+LINUX_VERSION = "5.10.247"
 
 # Custom Higeco Version ID
 PV = "${LINUX_VERSION}-HSC-1"

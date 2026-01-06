@@ -3,11 +3,11 @@ DESCRIPTION = "NXP Cryptographic Acceleration and Assurance Module (CAAM) - Linu
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cb8e25572881b205d17b185fd40fb5e3"
 
-PR="r1"
+PR="r2"
 
 inherit module
 
-SRC_URI = "git://github.com/usbarmory/caam-keyblob;protocol=https;branch=master file://0001-Patch_arch_no_v7.patch"
+SRC_URI = "git://github.com/usbarmory/caam-keyblob;protocol=https;branch=master file://0001-Patch_arch_no_v7.patch file://0002-Fix_build_6_12.patch "
 SRCREV = "2ba70f052fb19afde951ab8eddb110a561cc6572"
 
 

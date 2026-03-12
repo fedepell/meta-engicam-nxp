@@ -128,6 +128,27 @@ python write_specfile:prepend:csfsigned() {
     d.setVar('pkg_postinst:kernel-image-image', "")
 }
 
-
 # Add it to the image RPM (the image-image is dynamically created in kernel.bbclass, so we cannot put the file in that one)
 FILES:${KERNEL_PACKAGE_NAME}-image:csfsigned += "/boot/os_cntr_signed.bin"
+
+# ====================================================
+# 2026-02-25 - Obsoleting old kernel package
+#
+# Kernel packages writes always the same file
+# so we need to make sure that DNF will not
+# try to install both old and new package at
+# the same time, and will not try to keep
+# both of them in the system.
+# ====================================================
+
+# The name of the old package you want to obsolete
+OLD_PKG_NAME = "kernel-image-5.10.109-hsc-1+"
+
+# 1. RREPLACES tells the package manager this package replaces the old one (Maps to RPM 'Obsoletes')
+RREPLACES:${KERNEL_PACKAGE_NAME}-image += "${OLD_PKG_NAME}"
+
+# 2. RCONFLICTS prevents both packages from being installed at the same time
+RCONFLICTS:${KERNEL_PACKAGE_NAME}-image += "${OLD_PKG_NAME}"
+
+# 3. RPROVIDES ensures anything depending on the old package will be satisfied by this new one
+RPROVIDES:${KERNEL_PACKAGE_NAME}-image += "${OLD_PKG_NAME}"

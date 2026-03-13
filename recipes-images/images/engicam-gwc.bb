@@ -28,18 +28,6 @@ IMAGE_INSTALL:append = " \
 	ppp-tools \
 	curl \
 	openvpn \
-	lighttpd \
-	lighttpd-module-openssl \
-	lighttpd-module-rewrite \
-	lighttpd-module-redirect \
-	lighttpd-module-alias \
-	lighttpd-module-auth \
-	lighttpd-module-authn-file \
-	lighttpd-module-evasive \
-	lighttpd-module-usertrack \
-	lighttpd-module-setenv \
-	lighttpd-module-cgi \
-	lighttpd-module-deflate \
 	libmicrohttpd \
 	procps \
 	xz \
@@ -47,7 +35,6 @@ IMAGE_INSTALL:append = " \
 	tar \
 	sysstat \
 	screen \
-	msmtp \
 	lsof \
 	iptables \
 	gzip \
@@ -122,4 +109,4 @@ IMAGE_INSTALL:append = " \
 #
 
 
-TOOLCHAIN_TARGET_TASK += " wpa-supplicant-staticdev lib60870-staticdev rpm rpm-build rpm-sign"
+TOOLCHAIN_TARGET_TASK += " wpa-supplicant-staticdev rpm rpm-build rpm-sign"

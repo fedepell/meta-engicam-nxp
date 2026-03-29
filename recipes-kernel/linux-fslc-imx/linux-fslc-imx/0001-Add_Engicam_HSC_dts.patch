@@ -251,7 +251,7 @@ diff -ruN a/arch/arm64/boot/dts/engicam/imx8xq-icore-starterkit.dts b/arch/arm64
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_lpuart1>;
 +	fsl,uart-has-rtscts;
-+	rs485-rts-active-low;
++	rs485-rts-active-high;
 +	linux,rs485-enabled-at-boot-time;
 +	status = "okay";
 +};

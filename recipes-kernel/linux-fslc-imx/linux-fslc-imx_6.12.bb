@@ -83,7 +83,7 @@ LINUX_VERSION = "6.12.55"
 
 # Custom Higeco Version ID
 PV = "${LINUX_VERSION}-HSC-1"
-PR = "r1"
+PR = "r2"
 LOCALVERSION = "+"
 
 
